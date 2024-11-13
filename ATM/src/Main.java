@@ -31,7 +31,7 @@ public class Main {
                     Dados.deposit(contas);
                     break;
                 case 4:
-
+                    Dados.cashOut(contas);
                     break;
 
                 case 5:
@@ -39,7 +39,7 @@ public class Main {
                     break;
 
                 case 6:
-
+                    System.out.println("Encerrando o programa...");
                     break;
 
                 default:
