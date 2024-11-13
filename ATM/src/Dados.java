@@ -53,7 +53,7 @@ public class Dados {
     public static void deposit(Dados contas[])  {
         System.out.printf("Digite o numero da conta (Digite 'sair' para voltar): ");
         String input = scanner.nextLine();
-        
+
         if (input.equals("sair") || input.equals("SAIR") || input.equals("Sair")) {
             System.out.println("Retornando ao menu anterior");
             return;
@@ -80,6 +80,41 @@ public class Dados {
             }
         }
         System.out.println("Conta não encontrada");
+    }
+
+    public static void cashOut(Dados  contas[]) {
+        if (Dados.numContas == 0)  {
+            System.out.println("Nenhuma conta registrada no banco de dados!");
+            return;
+        }
+        double cash;
+
+        System.out.printf("Digite o numero da conta que deseja sacar: ");
+        String input = scanner.nextLine();
+
+        for(int i = 0; i < numContas; i++) {
+            if (input.equals(contas[i].accNum)) {
+
+                System.out.printf("Digite a quantia desejada: ");
+                cash = scanner.nextDouble();
+                if (cash <=0) {
+                    System.out.println("Quantidade invalida! apenas saques maiores que R$0.00");
+                    return;
+                }
+                else if (cash < contas[i].money){
+                    contas[i].money -= cash;
+                    System.out.println("Saque realizado com sucesso.");
+                    Dados.show(contas);
+                    return;
+                }
+                else {
+                    System.out.println("Saldo insuficiente para essa operação");
+                    return;
+                }
+                
+            }
+        }
+        System.out.println("Conta não encontrada!");
     }
 }
 
