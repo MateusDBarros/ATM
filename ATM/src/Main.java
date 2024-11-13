@@ -8,10 +8,11 @@ public class Main {
         int choice;
         do {
             System.out.println("1. Criar conta.");
-            System.out.println("2. Depositar.");
-            System.out.println("3. Sacar.");
-            System.out.println("4. Transferecia.");
-            System.out.println("5. Sair.");
+            System.out.println("2. Exibir conta.");
+            System.out.println("3. Depositar.");
+            System.out.println("4. Sacar.");
+            System.out.println("5. Transferecia.");
+            System.out.println("6. Sair.");
             System.out.println("Escolha uma opção.");
 
             choice = scanner.nextInt();
@@ -23,11 +24,11 @@ public class Main {
                     break;
 
                 case 2:
-
+                    Dados.show(contas);
                     break;
 
                 case 3:
-
+                    Dados.deposit(contas);
                     break;
                 case 4:
 
@@ -37,12 +38,16 @@ public class Main {
 
                     break;
 
+                case 6:
+
+                    break;
+
                 default:
                     System.out.println("Opção invalida");
                     break;
 
             }
-        } while (5 != choice);
+        } while (6 != choice);
 
     }
 }
